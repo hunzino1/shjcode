@@ -14,7 +14,7 @@
       <version>4.12</version>
       <scope>test</scope>
     </dependency>
-    <!--excel操作依赖-->
+    <!--poi excel操作依赖-->
     <dependency>
       <groupId>org.apache.poi</groupId>
       <artifactId>poi</artifactId>
@@ -30,6 +30,5 @@
       <artifactId>poi</artifactId>
       <version>3.11</version>
     </dependency>
-    <!--excel操作依赖-->
   </dependencies>
 </project>
