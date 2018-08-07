@@ -18,7 +18,7 @@ import java.util.List;
  */
 public class POIExcel {
     public static void main(String[] args) {
-        String filePath = "/Users/sunhaojie/Downloads/test.xlsx";
+        String filePath = "/Users/sunhaojie/myGithub/utils/java/utilWithMaven/documents/excel.xlsx";
         try {
             /**
              * 1、打开 Excel 文件，获取表格信息
