@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context-3.0.xsd
+       " default-autowire="byName">
+
+    <context:component-scan base-package=""/>
+
+    <!--redisPool配置, 一个应用可能会用到多个Sharding切片，上线需要修改-->
+    <bean id="jedisPoolConfig" class="redis.clients.jedis.JedisPoolConfig"/>
+    <bean id="redisService1" name="" class="redis.clients.jedis.ShardedJedisPool">
+        <constructor-arg index="0" ref="jedisPoolConfig"/>
+        <constructor-arg index="1">
+            <list>
+                <bean class="redis.clients.jedis.JedisShardInfo">
+                    <constructor-arg index="0" value="#{configManager.getRedisConfig('','').ip}"/>
+                    <constructor-arg index="1" value="#{configManager.getRedisConfig('','').port}"/>
+                    <constructor-arg index="2" value="20000"/>
+                </bean>
+            </list>
+        </constructor-arg>
+    </bean>
+    <bean id="redisService2" name="" class="redis.clients.jedis.ShardedJedisPool">
+        <constructor-arg index="0" ref="jedisPoolConfig"/>
+        <constructor-arg index="1">
+            <list>
+                <bean class="redis.clients.jedis.JedisShardInfo">
+                    <constructor-arg index="0" value="#{configManager.getRedisConfig('','').ip}"/>
+                    <constructor-arg index="1" value="#{configManager.getRedisConfig('','').port}"/>
+                    <constructor-arg index="2" value="20000"/>
+                </bean>
+            </list>
+        </constructor-arg>
+    </bean>
+</beans>
