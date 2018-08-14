@@ -66,5 +66,10 @@
       <artifactId>slf4j-api</artifactId>
       <version>1.7.25</version>
     </dependency>
+      <dependency>
+          <groupId>com.zhe800.trade</groupId>
+          <artifactId>trade-commonsutil</artifactId>
+          <version>2.8-SNAPSHOT</version>
+      </dependency>
   </dependencies>
 </project>
